@@ -71,7 +71,7 @@ def login(user,password):
             "os_version": "1.5.0",
             "source": "com.xiaomi.hm.health",
             "third_name": "email",
-        } 
+        }
     r2 = requests.post(url2,data=data2,headers=headers).json()
     login_token = r2["token_info"]["login_token"]
     #print("login_token获取成功！")
@@ -93,7 +93,7 @@ def main(user, passwd, step):
 
     if step == '':
         print ("已设置为随机步数（20000-29999）")
-        step = str(random.randint(20000,29999))
+        step = str(random.randint(12308,15368))
     login_token = 0
     login_token,userid = login(user,password)
     if login_token == 0:
@@ -125,8 +125,8 @@ def main(user, passwd, step):
     #print(response)
     result = f"{user[:4]}****{user[-4:]}: [{now}] 修改步数（{step}）"+ response['message']
     print(result)
-    qqtalk = 'https://qmsg.zendee.cn/send/KYE?msg=' + "修改步数：" + step + "  " + response[
-        'message'] + '&qq=QQ'
+    qqtalk = 'https://qmsg.zendee.cn/send/SCT179362T7SSeEEZcUVRSyTxPTt6YiYtS?msg=' + "修改步数：" + step + "  " + response[
+        'message'] + '&qq=1366565528'
     requests.get(qqtalk)
     return result
 #修改上方的KYE和QQ
@@ -150,9 +150,9 @@ def get_app_token(login_token):
 
 def main_handler(event, context):
     # 用户名（单用户的格式为 13800138000 ，多用户用#隔开，例如13800138000#13800138000#13800138000）
-    user = "账号"
+    user = "1366565528@qq.com"
     # 登录密码（用#隔开，例如123456#123456#123456）
-    passwd = "密码"
+    passwd = "cyx2174324"
     # 要修改的步数，直接输入想要修改的步数值，留空为随机步数20000至29999之间
     step = ""
 
